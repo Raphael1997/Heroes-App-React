@@ -1,8 +1,19 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { AuthContext } from '../../auth/AuthContext'
+import { type } from '../../types/types';
 
 export const LoginScreen = ({ history }) => {
 
+    const { dispatch } = useContext(AuthContext);
     const handleLogin = () => {
+        
+        dispatch({
+            type: type.login,
+            payload: {
+                name: "Raphael R"
+            }
+        });
+
         history.replace("/");
     }
     return (
